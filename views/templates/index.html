@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Hệ thống gợi ý phim</h1>
+        <p>Nhập từ khóa, thể loại hoặc mô tả để tìm phim phù hợp.</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Tìm kiếm phim</h2>
+            <div class="form-group">
+                <label for="query">Từ khóa / mô tả phim</label>
+                <textarea id="query" placeholder="Ví dụ: phim hành động không gian, phim kinh dị tâm lý"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="top_k">Số lượng gợi ý</label>
+                    <input type="number" id="top_k" value="10" min="1" max="30" />
+                </div>
+                <button id="submitBtn">Gợi ý ngay</button>
+            </div>
+            <div id="error" class="error"></div>
+            <div id="results" class="results"></div>
+        </section>
+
+        <section class="card charts">
+            <h2>Phân tích dữ liệu</h2>
+            <div class="chart-grid">
+                <div class="chart-item">
+                    <h3>Phân bố rating</h3>
+                    <canvas id="ratingChart"></canvas>
+                </div>
+                <div class="chart-item">
+                    <h3>Tần suất thể loại</h3>
+                    <canvas id="genreChart"></canvas>
+                </div>
+                <div class="chart-item">
+                    <h3>Top items theo rating</h3>
+                    <canvas id="topItemsChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Demo content-based movie recommendation (TF-IDF + cosine) using Top 10000 Popular Movies dataset.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
