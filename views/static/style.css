@@ -174,3 +174,147 @@ footer {
     color: var(--muted);
     font-size: 14px;
 }
+
+.heatmap-wrapper {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.heatmap-wrapper h3 {
+    color: var(--accent);
+}
+
+.heatmap-grid {
+    overflow-x: auto;
+    padding: 8px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #0b1224;
+}
+
+.heatmap-table {
+    display: grid;
+    gap: 4px;
+}
+
+.heatmap-cell {
+    padding: 6px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 12px;
+    color: #0b1224;
+    font-weight: 700;
+}
+
+.heatmap-header {
+    font-size: 12px;
+    color: var(--text);
+    font-weight: 600;
+    text-align: center;
+    padding: 6px;
+    white-space: nowrap;
+}
+
+.history-section {
+    margin-top: 16px;
+}
+
+.history-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    align-items: center;
+}
+
+.tab-btn {
+    background: #1f2937;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
+    color: #0b1224;
+    border-color: #22d3ee;
+}
+
+.tab-btn:hover:not(.active) {
+    background: #374151;
+}
+
+.clear-btn {
+    margin-left: auto;
+    background: var(--danger);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.clear-btn:hover {
+    background: #dc2626;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.history-list {
+    display: grid;
+    gap: 8px;
+}
+
+.history-item {
+    background: #1f2937;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.2s;
+}
+
+.history-item:hover {
+    background: #374151;
+    border-color: var(--accent);
+}
+
+.history-query,
+.history-title {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 4px;
+}
+
+.history-meta {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.empty-msg {
+    text-align: center;
+    color: var(--muted);
+    padding: 24px;
+    font-style: italic;
+}
+
+.result-item {
+    cursor: pointer;
+}
+
+.result-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}

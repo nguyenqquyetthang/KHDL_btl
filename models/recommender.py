@@ -23,9 +23,18 @@ class ContentRecommender:
             rating_col = "vote_average" if "vote_average" in row else "rating"
             title = row.get("original_title", row.get("title", ""))
             genres = row.get("genre", row.get("genres", ""))
+            # Safe ID handling: fallback to index when missing/NaN/non-integer
+            raw_id = row.get("id", None)
+            if raw_id is None or pd.isna(raw_id):
+                safe_id = int(idx)
+            else:
+                try:
+                    safe_id = int(raw_id)
+                except (TypeError, ValueError):
+                    safe_id = int(idx)
             results.append(
                 {
-                    "id": int(row.get("id", idx)),
+                    "id": safe_id,
                     "title": title,
                     "overview": row.get("overview", row.get("description", "")),
                     "genres": genres,

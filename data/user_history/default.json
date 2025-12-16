@@ -1,0 +1,40 @@
+{
+  "searches": [
+    {
+      "query": "space",
+      "top_k": 10,
+      "result_count": 10,
+      "timestamp": "2025-12-17T02:27:47.032046"
+    }
+  ],
+  "views": [
+    {
+      "movie_id": 874104,
+      "title": "A StoryBots Space Adventure",
+      "genres": "Animation, Family",
+      "rating": 0.0,
+      "timestamp": "2025-12-17T02:27:59.361272"
+    },
+    {
+      "movie_id": 2157,
+      "title": "Lost in Space",
+      "genres": "Science Fiction, Adventure",
+      "rating": 5.3,
+      "timestamp": "2025-12-17T02:28:00.208979"
+    },
+    {
+      "movie_id": 10679,
+      "title": "Iron Sky",
+      "genres": "Action, Comedy, Science Fiction",
+      "rating": 5.7,
+      "timestamp": "2025-12-17T02:28:11.669400"
+    },
+    {
+      "movie_id": 782,
+      "title": "Gattaca",
+      "genres": "Thriller, Science Fiction, Mystery, Romance",
+      "rating": 7.6,
+      "timestamp": "2025-12-17T02:28:19.409311"
+    }
+  ]
+}

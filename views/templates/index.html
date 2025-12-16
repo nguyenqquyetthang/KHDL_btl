@@ -47,6 +47,25 @@
                     <canvas id="topItemsChart"></canvas>
                 </div>
             </div>
+            <div class="heatmap-wrapper">
+                <h3>Heatmap tương đồng (top 20 phim phổ biến)</h3>
+                <div id="heatmapGrid" class="heatmap-grid"></div>
+            </div>
+        </section>
+
+        <section class="card history-section">
+            <h2>Lịch sử của bạn</h2>
+            <div class="history-tabs">
+                <button class="tab-btn active" data-tab="searches">Tìm kiếm gần đây</button>
+                <button class="tab-btn" data-tab="views">Phim đã xem</button>
+                <button id="clearHistoryBtn" class="clear-btn">Xóa lịch sử</button>
+            </div>
+            <div id="searches-tab" class="tab-content active">
+                <div id="searchHistory" class="history-list"></div>
+            </div>
+            <div id="views-tab" class="tab-content">
+                <div id="viewHistory" class="history-list"></div>
+            </div>
         </section>
     </main>
 
