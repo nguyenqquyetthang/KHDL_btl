@@ -68,6 +68,16 @@ def get_engine():
 
 def init_db():
     """Khởi tạo database: tạo bảng nếu chưa có."""
+    db_url = get_database_url()
+    
+    # Nếu dùng SQLite, tạo thư mục nếu cần
+    if db_url.startswith("sqlite"):
+        import os
+        db_path = db_url.replace("sqlite:///", "")
+        db_dir = os.path.dirname(db_path)
+        if db_dir and not os.path.exists(db_dir):
+            os.makedirs(db_dir, exist_ok=True)
+    
     engine = get_engine()
     Base.metadata.create_all(engine)
     return engine

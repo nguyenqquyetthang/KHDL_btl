@@ -21,13 +21,22 @@ def create_app() -> Flask:
     return app
 
 
-# Khởi tạo database và tạo app instance cho gunicorn
-print("Khởi tạo database...")
-init_db()
-print("Database đã sẵn sàng!")
-
 # Tạo app instance ở module level để gunicorn có thể tìm thấy
 app = create_app()
+
+# Khởi tạo database khi ứng dụng khởi động (không trong module level)
+@app.before_request
+def init_db_on_startup():
+    """Khởi tạo database trước request đầu tiên."""
+    if not hasattr(app, '_db_initialized'):
+        try:
+            print("Khởi tạo database...")
+            init_db()
+            print("Database đã sẵn sàng!")
+            app._db_initialized = True
+        except Exception as e:
+            print(f"Lỗi khi khởi tạo database: {e}")
+            app._db_initialized = True  # Chỉ cố gắng lần này để tránh lặp vô hạn
 
 
 def main():
