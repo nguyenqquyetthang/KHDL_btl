@@ -21,13 +21,16 @@ def create_app() -> Flask:
     return app
 
 
+# Khởi tạo database và tạo app instance cho gunicorn
+print("Khởi tạo database...")
+init_db()
+print("Database đã sẵn sàng!")
+
+# Tạo app instance ở module level để gunicorn có thể tìm thấy
+app = create_app()
+
+
 def main():
-    # Khởi tạo database trước khi chạy server
-    print("Khởi tạo database...")
-    init_db()
-    print("Database đã sẵn sàng!")
-    
-    app = create_app()
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
 
